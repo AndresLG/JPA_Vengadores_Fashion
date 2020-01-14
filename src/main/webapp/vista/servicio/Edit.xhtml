@@ -37,7 +37,7 @@
                                            itemLabel="#{codproItem.tippro}, #{codproItem.prepro}%"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="TOTAL S/." for="totpreser" />
-                        <p:inputText id="totpreser" value="#{servicioController.selected.totpreser}" title="#{vista.EditServicioTitle_totpreser}" />
+                        <p:inputText disabled="true" id="totpreser" value="#{servicioController.selected.totpreser}" title="#{vista.EditServicioTitle_totpreser}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{servicioController.update}" value="#{vista.Save}" update="display,:ServicioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ServicioEditDialog');"/>
                     <p:commandButton value="#{vista.Cancel}" onclick="ServicioEditDialog.hide()"/>

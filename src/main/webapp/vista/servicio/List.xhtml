@@ -35,21 +35,18 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="TIPO DE SERVICIO"/>
+                                <h:outputText value="TIPO DE SERVICIO (Insumo)"/>
                             </f:facet>
-                            <h:outputText value="#{item.codtipser.nomtipser}, #{item.codtipser.subtipser}, S/.#{item.codtipser.prectipser}"/>
+                            <h:outputText value="#{item.codtipser.nomtipser}, #{item.codtipser.subtipser}, S/.#{item.codtipser.prectipser}, #{item.codtipser.instipser}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="PROFESIONAL"/>
+                                <h:outputText value="PROFESIONAL (Precio)"/>
                             </f:facet>
                             <h:outputText value="#{item.codpro.tippro}, #{item.codpro.prepro}%"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="TOTAL"/>
-                            </f:facet>
-                            <h:outputText value="S/.#{item.totpreser}"/>
+                        <p:column headerText="TOTAL">
+                            <h:outputText value="S/.#{item.codtipser.instipser == 'Si' ? (item.codtipser.prectipser / item.codpro.prepro * 100) * 0.15 : (item.codtipser.prectipser / item.codpro.prepro * 100)}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{vista.Create}" actionListener="#{servicioController.prepareCreate}" update=":ServicioCreateForm" oncomplete="PF('ServicioCreateDialog').show()"/>
