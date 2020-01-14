@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServicioTipoViewDlg" widgetVar="ServicioTipoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.ViewServicioTipoTitle}">
+            <h:form id="ServicioTipoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{servicioTipoController.selected != null}">
+                        <h:outputText value="#{vista.ViewServicioTipoLabel_codtipser}"/>
+                        <h:outputText value="#{servicioTipoController.selected.codtipser}" title="#{vista.ViewServicioTipoTitle_codtipser}"/>
+                        <h:outputText value="#{vista.ViewServicioTipoLabel_nomtipser}"/>
+                        <h:outputText value="#{servicioTipoController.selected.nomtipser}" title="#{vista.ViewServicioTipoTitle_nomtipser}"/>
+                        <h:outputText value="#{vista.ViewServicioTipoLabel_subtipser}"/>
+                        <h:outputText value="#{servicioTipoController.selected.subtipser}" title="#{vista.ViewServicioTipoTitle_subtipser}"/>
+                        <h:outputText value="#{vista.ViewServicioTipoLabel_prectipser}"/>
+                        <h:outputText value="#{servicioTipoController.selected.prectipser}" title="#{vista.ViewServicioTipoTitle_prectipser}"/>
+                        <h:outputText value="#{vista.ViewServicioTipoLabel_esttipser}"/>
+                        <h:outputText value="#{servicioTipoController.selected.esttipser}" title="#{vista.ViewServicioTipoTitle_esttipser}"/>
+                        <h:outputText value="#{vista.ViewServicioTipoLabel_bartipser}"/>
+                        <h:outputText value="#{servicioTipoController.selected.bartipser}" title="#{vista.ViewServicioTipoTitle_bartipser}"/>
+                        <h:outputText value="#{vista.ViewServicioTipoLabel_instipser}"/>
+                        <h:outputText value="#{servicioTipoController.selected.instipser}" title="#{vista.ViewServicioTipoTitle_instipser}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{vista.Close}" onclick="ServicioTipoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServicioTipoCreateDlg" widgetVar="ServicioTipoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.CreateServicioTipoTitle}">
+            <h:form id="ServicioTipoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{servicioTipoController.selected != null}">
+                        <p:outputLabel value="TIPO" for="nomtipser" />
+                        <p:inputText id="nomtipser" value="#{servicioTipoController.selected.nomtipser}" title="#{vista.CreateServicioTipoTitle_nomtipser}" />
+                        <p:outputLabel value="SUBTIPO" for="subtipser" />
+                        <p:inputText id="subtipser" value="#{servicioTipoController.selected.subtipser}" title="#{vista.CreateServicioTipoTitle_subtipser}" />
+                        <p:outputLabel value="PRECIO S/." for="prectipser" />
+                        <p:inputText id="prectipser" value="#{servicioTipoController.selected.prectipser}" title="#{vista.CreateServicioTipoTitle_prectipser}" />
+                        <p:outputLabel value="ESTILISTA" for="esttipser" />
+                        <p:selectOneMenu id="esttipser" value="#{servicioTipoController.selected.esttipser}" required="true" requiredMessage="Añadir Estilista">
+                            <f:selectItem itemLabel="SELECCIONE" itemValue="#{null}" />
+                            <f:selectItem itemLabel="Nivel 1" itemValue="Nivel 1" />
+                            <f:selectItem itemLabel="Nivel 2" itemValue="Nivel 2" />
+                            <f:selectItem itemLabel="No" itemValue="No" />
+                        </p:selectOneMenu>
+                        <p:outputLabel value="BARBERO" for="bartipser" />
+                        <p:selectOneMenu id="bartipser" value="#{servicioTipoController.selected.bartipser}" required="true" requiredMessage="Añadir Barbero">
+                            <f:selectItem itemLabel="SELECCIONE" itemValue="#{null}" />
+                            <f:selectItem itemLabel="Si" itemValue="Si" />
+                            <f:selectItem itemLabel="No" itemValue="No" />
+                        </p:selectOneMenu>
+                        <p:outputLabel value="INSUMO" for="instipser" />
+                        <p:selectOneMenu id="instipser" value="#{servicioTipoController.selected.instipser}" required="true" requiredMessage="Añadir Insumo">
+                            <f:selectItem itemLabel="SELECCIONE" itemValue="#{null}" />
+                            <f:selectItem itemLabel="Si" itemValue="Si" />
+                            <f:selectItem itemLabel="No" itemValue="No" />
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{servicioTipoController.create}" value="#{vista.Save}" update="display,:ServicioTipoListForm:datalist,:growl" oncomplete="handleSubmit(args,'ServicioTipoCreateDialog');"/>
+                    <p:commandButton value="#{vista.Cancel}" onclick="ServicioTipoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
