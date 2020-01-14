@@ -46,7 +46,7 @@
                             <h:outputText value="#{item.codpro.tippro}, #{item.codpro.prepro}%"/>
                         </p:column>
                         <p:column headerText="TOTAL">
-                            <h:outputText value="S/.#{item.codtipser.instipser == 'Si' ? (item.codtipser.prectipser / item.codpro.prepro * 100) * 0.15 : (item.codtipser.prectipser / item.codpro.prepro * 100)}"/>
+                            <h:outputText value="S/.#{item.totpreser}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{vista.Create}" actionListener="#{servicioController.prepareCreate}" update=":ServicioCreateForm" oncomplete="PF('ServicioCreateDialog').show()"/>

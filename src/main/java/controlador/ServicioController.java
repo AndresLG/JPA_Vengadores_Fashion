@@ -85,6 +85,7 @@ public class ServicioController implements Serializable {
         if (selected != null) {
             setEmbeddableKeys();
             try {
+                selected.calcular();
                 if (persistAction != PersistAction.DELETE) {
                     getFacade().edit(selected);
                 } else {

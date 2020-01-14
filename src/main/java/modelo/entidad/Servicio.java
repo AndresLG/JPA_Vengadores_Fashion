@@ -48,7 +48,7 @@ public class Servicio implements Serializable {
     @JoinColumn(name = "CODTIPSER", referencedColumnName = "CODTIPSER")
     @ManyToOne(optional = false)
     private ServicioTipo codtipser;
-    
+
     @Transient
     private int Subtotal;
 
@@ -128,6 +128,16 @@ public class Servicio implements Serializable {
         return Subtotal;
     }
 
-    
-    
+    public void calcular() {
+        double total = 0;
+        if (codtipser.getInstipser() == "Si") {
+            total = ((Double.valueOf(codtipser.getPrectipser()) / Double.valueOf(codpro.getPrepro())) * 100) * 0.15;
+        } else {
+            total = (Double.valueOf(codtipser.getPrectipser()) / Double.valueOf(codpro.getPrepro())) * 100;
+
+        }
+        this.setTotpreser(String.valueOf(total));
+
+    }
+
 }
