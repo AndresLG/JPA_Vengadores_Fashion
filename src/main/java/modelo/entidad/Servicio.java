@@ -131,9 +131,9 @@ public class Servicio implements Serializable {
     public void calcular() {
         double total = 0;
         if (codtipser.getInstipser() == "Si") {
-            total = ((Double.valueOf(codtipser.getPrectipser()) / Double.valueOf(codpro.getPrepro())) * 100) * 0.15;
+            total = (((Double.valueOf(codtipser.getPrectipser()) * Double.valueOf(codpro.getPrepro())) / 100) * 0.15) + Double.valueOf(codtipser.getPrectipser());
         } else {
-            total = (Double.valueOf(codtipser.getPrectipser()) / Double.valueOf(codpro.getPrepro())) * 100;
+            total = ((Double.valueOf(codtipser.getPrectipser()) * Double.valueOf(codpro.getPrepro())) / 100) + Double.valueOf(codtipser.getPrectipser());
 
         }
         this.setTotpreser(String.valueOf(total));
